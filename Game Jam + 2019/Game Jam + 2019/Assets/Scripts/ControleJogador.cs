@@ -22,24 +22,25 @@ public class ControleJogador : MonoBehaviour
 
     private void MovePersonagem()
     {
-        Vector3 novaPosicao = transform.position;        
+        Vector3 novaPosicao = Vector3.zero;        
 
         if (Input.GetKey(KeyCode.W))
         {
-            novaPosicao += Vector3.up * velocidade * Time.deltaTime;
+            novaPosicao += Vector3.up;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            novaPosicao += -Vector3.up * velocidade * Time.deltaTime;
+            novaPosicao += -Vector3.up;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            novaPosicao += Vector3.right * velocidade * Time.deltaTime;
+            novaPosicao += Vector3.right;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            novaPosicao += -Vector3.right * velocidade * Time.deltaTime;
+            novaPosicao += -Vector3.right;
         }
+        novaPosicao = Vector3.ClampMagnitude((novaPosicao), 1.0f) * velocidade * Time.deltaTime + transform.position;
 
         rb.MovePosition(novaPosicao);
     }
