@@ -7,9 +7,12 @@ public class KillZone : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        transform.parent.GetComponent<IAMonstro>().alvo = null;
-        collision.gameObject.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //Destroy(collision.gameObject);
+        if(collision.tag == "Player")
+        {
+            transform.parent.GetComponent<IAMonstro>().alvo = null;
+            collision.gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //Destroy(collision.gameObject);
+        }
     }
 }
