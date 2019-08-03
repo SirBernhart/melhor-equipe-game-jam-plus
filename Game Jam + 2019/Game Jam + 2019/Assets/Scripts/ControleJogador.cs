@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovimentoJogador : MonoBehaviour
+public class ControleJogador : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float velocidade = 3f;
@@ -16,7 +16,13 @@ public class MovimentoJogador : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 novaPosicao = transform.position;
+        MovePersonagem();
+        OlhaParaMouse();
+    }
+
+    private void MovePersonagem()
+    {
+        Vector3 novaPosicao = transform.position;        
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -36,5 +42,12 @@ public class MovimentoJogador : MonoBehaviour
         }
 
         rb.MovePosition(novaPosicao);
+    }
+
+    private void OlhaParaMouse()
+    {
+        Vector3 direcao = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angulo, Vector3.forward);
     }
 }
