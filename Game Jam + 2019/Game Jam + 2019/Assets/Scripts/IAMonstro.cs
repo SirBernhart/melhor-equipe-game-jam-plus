@@ -92,35 +92,29 @@ public class IAMonstro : MonoBehaviour
         // Patrulhar
         else
         {
-            if (path == null)
-                return;
-
-            if(currentWaypoint >= path.vectorPath.Count)
-            {
-                reachedEndOfPath = true;
-                return;
-            }
-            else
-            {
-                reachedEndOfPath = false;
-            }
-
-            Vector2 direcao = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-
-            rotacaoAtual = Vector3.SmoothDamp(rotacaoAtual, new Vector3(direcao.x, direcao.y),
-            ref velocidadeDaSuavizacaoRotacao, tempoDeSuavizacaoRotacao);
-
-            float angulo = Mathf.Atan2(rotacaoAtual.y, rotacaoAtual.x) * Mathf.Rad2Deg;
-            rb.SetRotation(angulo);
-
-            rb.MovePosition(rb.position + direcao * velocidadePatrulha * Time.deltaTime);
-
-            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-
-            if(distance < distanciaProxWaypoint)
-            {
-                currentWaypoint++;
-            }
+            PatrulharAteDestino();
         }
     }
+
+    // Patrulha até o destino definido
+    private void PatrulharAteDestino()
+    {
+        Vector2 direcao = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+
+        rotacaoAtual = Vector3.SmoothDamp(rotacaoAtual, new Vector3(direcao.x, direcao.y),
+        ref velocidadeDaSuavizacaoRotacao, tempoDeSuavizacaoRotacao);
+
+        float angulo = Mathf.Atan2(rotacaoAtual.y, rotacaoAtual.x) * Mathf.Rad2Deg;
+        rb.SetRotation(angulo);
+
+        rb.MovePosition(rb.position + direcao * velocidadePatrulha * Time.deltaTime);
+
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+        if (distance < distanciaProxWaypoint)
+        {
+            currentWaypoint++;
+        }
+    }
+
 }
