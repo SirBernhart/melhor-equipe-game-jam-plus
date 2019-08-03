@@ -102,10 +102,13 @@ public class IAMonstro : MonoBehaviour
                 reachedEndOfPath = false;
             }
 
-            Vector2 direcao = ((Vector2) path.vectorPath[currentWaypoint] - rb.position).normalized;
-            
-            float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
-            rb.MoveRotation(Quaternion.AngleAxis(angulo, Vector3.forward));
+            Vector2 direcao = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+
+            rotacaoAtual = Vector3.SmoothDamp(rotacaoAtual, new Vector3(direcao.x, direcao.y),
+            ref velocidadeDaSuavizacaoRotacao, tempoDeSuavizacaoRotacao);
+
+            float angulo = Mathf.Atan2(rotacaoAtual.y, rotacaoAtual.x) * Mathf.Rad2Deg;
+            rb.SetRotation(angulo);
 
             rb.MovePosition(rb.position + direcao * velocidadePatrulha * Time.deltaTime);
 
