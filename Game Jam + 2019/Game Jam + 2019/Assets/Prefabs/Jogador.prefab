@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 6
+  numChaves: 0
   tempoDeSuavizacaoRotacao: 0.12
 --- !u!58 &7842588242508911460
 CircleCollider2D:
