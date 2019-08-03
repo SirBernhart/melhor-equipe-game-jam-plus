@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &13447011
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266486621823892545}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4057d6d081f1e4df09ea5bf69663d36e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &9189090654829061629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
         type: 3}
       propertyPath: m_Name
-      value: creatureGraphics
+      value: creatureGraphics Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8950048188375914938, guid: 044343121f2664fc99113ad3a6a490f4,
         type: 3}
@@ -86,21 +67,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 8950048188107484940, guid: 044343121f2664fc99113ad3a6a490f4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7586399
-      objectReference: {fileID: 0}
-    - target: {fileID: 8950048188107484940, guid: 044343121f2664fc99113ad3a6a490f4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6515103
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044343121f2664fc99113ad3a6a490f4, type: 3}
---- !u!1 &266486621823892545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
-    type: 3}
-  m_PrefabInstance: {fileID: 9189090654829061629}
-  m_PrefabAsset: {fileID: 0}
