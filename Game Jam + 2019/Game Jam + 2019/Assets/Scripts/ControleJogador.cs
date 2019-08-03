@@ -17,7 +17,6 @@ public class ControleJogador : MonoBehaviour
     void Update()
     {
         MovePersonagem();
-        OlhaParaMouse();
     }
 
     private void MovePersonagem()
@@ -40,16 +39,23 @@ public class ControleJogador : MonoBehaviour
         {
             novaPosicao += -Vector3.right;
         }
+        RotacionaPersonagem(novaPosicao);
         // Corrige o bônus de movimento diagonal
         novaPosicao = Vector3.ClampMagnitude((novaPosicao), 1.0f) * velocidade * Time.deltaTime + transform.position;
 
         rb.MovePosition(novaPosicao);
     }
 
-    private void OlhaParaMouse()
+    [SerializeField] private float tempoDeSuavizacaoRotacao = .12f;
+    Vector3 velocidadeDaSuavizacaoRotacao;
+    Vector3 rotacaoAtual;
+    private void RotacionaPersonagem(Vector3 novaPosicao)
     {
-        Vector3 direcao = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angulo, Vector3.forward);
+        rotacaoAtual = transform.rotation.eulerAngles;
+        rotacaoAtual = Vector3.SmoothDamp(rotacaoAtual, new Vector3(novaPosicao.x, novaPosicao.y),
+            ref velocidadeDaSuavizacaoRotacao, tempoDeSuavizacaoRotacao);
+
+        float angulo = Mathf.Atan2(rotacaoAtual.y, rotacaoAtual.x) * Mathf.Rad2Deg;
+        rb.SetRotation(angulo);
     }
 }
