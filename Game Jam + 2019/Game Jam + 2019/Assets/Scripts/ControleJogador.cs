@@ -8,6 +8,8 @@ public class ControleJogador : MonoBehaviour
     private Rigidbody2D rb;
     public float velocidade = 3f;
 
+    public int numChaves;
+
     // Start is called before the first frame update
     void Start()
     {
