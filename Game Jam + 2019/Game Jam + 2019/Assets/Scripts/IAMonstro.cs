@@ -72,9 +72,12 @@ public class IAMonstro : MonoBehaviour
         } 
     }
 
+    // Variáveis para tratar a rotação do monstro
     [SerializeField] private float tempoDeSuavizacaoRotacao = .12f;
     Vector3 velocidadeDaSuavizacaoRotacao;
     Vector3 rotacaoAtual;
+
+    public List<Vector3> posicoesPatrulha; // Posições pelas quais o monstro vai ficar patrulhando
     void Update()
     {
         // Seguir o jogador
