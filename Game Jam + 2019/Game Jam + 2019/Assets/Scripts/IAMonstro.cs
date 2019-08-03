@@ -25,7 +25,15 @@ public class IAMonstro : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(UpdatePath());
+        for (int i = 0; i < paiPosicoesPatrulha.childCount; i++)
+        {
+            posicoesPatrulha.Add(paiPosicoesPatrulha.GetChild(i).position);
+        }
+
+        indiceDestinoAtual = SortearProximoDestino(indiceDestinoAtual);
+        seeker.StartPath(rb.position, posicoesPatrulha[indiceDestinoAtual], OnPathComplete);
+
+        //StartCoroutine(UpdatePath());
     }
 
     public void MudarEstadoJogadorAvistado(bool avistado)
@@ -75,15 +83,14 @@ public class IAMonstro : MonoBehaviour
 
     // Sorteia o próximo destino que o monstro irá se dirigir para
     // Se sortear o mesmo que o anterior, repete o sorteio
-    public Vector3 SortearProximoDestino(int indiceAtual)
+    public int SortearProximoDestino(int indiceAtual)
     {
         int proximoDestino;
         do
         {
-            proximoDestino = Random.Range(0, posicoesPatrulha.Count - 1);
+            proximoDestino = Random.Range(0, posicoesPatrulha.Count);
         } while (proximoDestino == indiceAtual);
-
-        return posicoesPatrulha[proximoDestino];
+        return proximoDestino;
     }
 
     //================================== UPDATE ===========================================
@@ -93,7 +100,9 @@ public class IAMonstro : MonoBehaviour
     Vector3 velocidadeDaSuavizacaoRotacao;
     Vector3 rotacaoAtual;
 
-    public List<Vector3> posicoesPatrulha = new List<Vector3>(); // Posições pelas quais o monstro vai ficar patrulhando
+    public Transform paiPosicoesPatrulha;
+    private List<Vector3> posicoesPatrulha = new List<Vector3>(); // Posições pelas quais o monstro vai ficar patrulhando
+    private int indiceDestinoAtual;
     void Update()
     {
         // Seguir o jogador
@@ -121,10 +130,10 @@ public class IAMonstro : MonoBehaviour
         if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
-            //destinoAtual = SortearProximoDestino;
+            indiceDestinoAtual = SortearProximoDestino(indiceDestinoAtual);
             if (seeker.IsDone())
             {
-                seeker.StartPath(rb.position, alvo.position, OnPathComplete);
+                seeker.StartPath(rb.position, posicoesPatrulha[indiceDestinoAtual], OnPathComplete);
             }
             return;
         }
