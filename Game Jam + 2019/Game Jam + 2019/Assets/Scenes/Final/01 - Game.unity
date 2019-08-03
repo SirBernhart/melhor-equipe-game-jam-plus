@@ -65815,6 +65815,21 @@ PrefabInstance:
       propertyPath: paiPosicoesPatrulha
       value: 
       objectReference: {fileID: 984979718}
+    - target: {fileID: 5910412613382423723, guid: 2808c770af4d086409dcd7871ad153af,
+        type: 3}
+      propertyPath: velocidadePersseguicao
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430092149866978996, guid: 2808c770af4d086409dcd7871ad153af,
+        type: 3}
+      propertyPath: m_Radius
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307017321764258657, guid: 2808c770af4d086409dcd7871ad153af,
+        type: 3}
+      propertyPath: anguloLinhaDeVisao
+      value: 360
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2808c770af4d086409dcd7871ad153af, type: 3}
 --- !u!4 &1624038175 stripped
