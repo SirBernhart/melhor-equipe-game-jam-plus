@@ -72,6 +72,19 @@ public class IAMonstro : MonoBehaviour
         } 
     }
 
+    // Sorteia o próximo destino que o monstro irá patrulhar para
+    // Caso seja o mesmo indice sorteado anteriormente, sorteia novamente
+    public Vector3 SorteiaProximoDestino(int indiceAtual)
+    {
+        int proximoIndice;
+        do
+        {
+            proximoIndice = Random.Range(0, posicoesPatrulha.Count);
+        } while (proximoIndice == indiceAtual);
+
+        return posicoesPatrulha[proximoIndice];
+    }
+
     // Variáveis para tratar a rotação do monstro
     [SerializeField] private float tempoDeSuavizacaoRotacao = .12f;
     Vector3 velocidadeDaSuavizacaoRotacao;
