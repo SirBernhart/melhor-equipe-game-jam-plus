@@ -40,6 +40,7 @@ public class ControleJogador : MonoBehaviour
         {
             novaPosicao += -Vector3.right;
         }
+        // Corrige o bônus de movimento diagonal
         novaPosicao = Vector3.ClampMagnitude((novaPosicao), 1.0f) * velocidade * Time.deltaTime + transform.position;
 
         rb.MovePosition(novaPosicao);

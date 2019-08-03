@@ -21,6 +21,7 @@ public class LinhaDeVisao : MonoBehaviour
         {
             Vector3 direction = collision.transform.position - transform.position;
             float angle = Vector3.Angle(direction, transform.right);
+           
 
             // Se o jogador estiver dentro do angulo de visão na frente do monstro
             if(angle < anguloLinhaDeVisao * 0.5f)
