@@ -14,6 +14,7 @@ public class ControleJogador : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rotacaoAtual = transform.rotation.eulerAngles;
     }
 
     // Update is called once per frame
@@ -54,12 +55,11 @@ public class ControleJogador : MonoBehaviour
     Vector3 rotacaoAtual;
     private void RotacionaPersonagem(Vector3 novaPosicao)
     {
-        rotacaoAtual = transform.rotation.eulerAngles;
+        //rotacaoAtual = transform.rotation.eulerAngles;
         rotacaoAtual = Vector3.SmoothDamp(rotacaoAtual, new Vector3(novaPosicao.x, novaPosicao.y),
             ref velocidadeDaSuavizacaoRotacao, tempoDeSuavizacaoRotacao);
-
         float angulo = Mathf.Atan2(rotacaoAtual.y, rotacaoAtual.x) * Mathf.Rad2Deg;
-        rb.SetRotation(angulo);
+        rb.MoveRotation(angulo);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
