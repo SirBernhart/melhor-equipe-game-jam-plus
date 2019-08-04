@@ -67327,7 +67327,7 @@ GameObject:
   - component: {fileID: 857942789}
   m_Layer: 0
   m_Name: '-----Monstro-----'
-  m_TagString: Untagged
+  m_TagString: Monstro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74117,6 +74117,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857942789}
     m_Modifications:
+    - target: {fileID: 1161918289743489309, guid: 2808c770af4d086409dcd7871ad153af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5910412613382423721, guid: 2808c770af4d086409dcd7871ad153af,
         type: 3}
       propertyPath: m_Name

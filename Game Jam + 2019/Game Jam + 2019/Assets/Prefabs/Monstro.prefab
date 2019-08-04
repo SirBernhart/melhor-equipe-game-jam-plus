@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 6960045303662796882}
   m_Layer: 2
   m_Name: killzone
-  m_TagString: Untagged
+  m_TagString: Monstro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 6307017321764258657}
   m_Layer: 2
   m_Name: linha de visao
-  m_TagString: Untagged
+  m_TagString: Monstro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 884016867709031137}
   m_Layer: 2
   m_Name: linha de espreita
-  m_TagString: Untagged
+  m_TagString: Monstro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 478637799978554067}
   m_Layer: 2
   m_Name: Monstro
-  m_TagString: Untagged
+  m_TagString: Monstro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1053,6 +1053,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5910412613382423717}
     m_Modifications:
+    - target: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
+        type: 3}
+      propertyPath: m_Name
+      value: creatureGraphics
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8950048188375914938, guid: 044343121f2664fc99113ad3a6a490f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1107,16 +1117,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
-        type: 3}
-      propertyPath: m_Name
-      value: creatureGraphics
-      objectReference: {fileID: 0}
-    - target: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8950048188375914941, guid: 044343121f2664fc99113ad3a6a490f4,
         type: 3}
