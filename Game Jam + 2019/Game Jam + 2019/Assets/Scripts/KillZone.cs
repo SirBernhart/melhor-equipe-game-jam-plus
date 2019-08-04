@@ -10,9 +10,14 @@ public class KillZone : MonoBehaviour
         if(collision.tag == "Player")
         {
             transform.parent.GetComponent<IAMonstro>().alvo = null;
+            transform.parent.GetComponent<IAMonstro>().anim.SetTrigger("kill");
             collision.gameObject.SetActive(false);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            //Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
+            Invoke("ChangeScene",1.6f);
         }
+    }
+
+    public void ChangeScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

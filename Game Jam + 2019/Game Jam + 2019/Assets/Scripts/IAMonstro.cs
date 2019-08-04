@@ -17,6 +17,8 @@ public class IAMonstro : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
+    [HideInInspector]
+    public Animator anim;
 
     private bool espreitarJogadorExecutando; // Se a corotina UpdatePath está sendo executada
 
@@ -25,6 +27,8 @@ public class IAMonstro : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<Animator>();
+
         for (int i = 0; i < paiPosicoesPatrulha.childCount; i++)
         {
             posicoesPatrulha.Add(paiPosicoesPatrulha.GetChild(i).position);
@@ -103,19 +107,22 @@ public class IAMonstro : MonoBehaviour
     private int indiceDestinoAtual;
     void Update()
     {
-        // Seguir o jogador
-        if (jogadorEmVisao)
-        {
-            Vector3 dir = (alvo.position - transform.position).normalized;
-            float angulo = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            rb.MoveRotation(Quaternion.AngleAxis(angulo, Vector3.forward));
+        if(alvo != null){// Seguir o jogador
+            if (jogadorEmVisao)
+            {
+                Vector3 dir = (alvo.position - transform.position).normalized;
+                float angulo = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                rb.MoveRotation(Quaternion.AngleAxis(angulo, Vector3.forward));
 
-            rb.MovePosition(transform.position + dir * velocidadePersseguicao * Time.deltaTime);
-        }
-        // Patrulhar
-        else
-        {
-            PatrulharAteDestino();
+                rb.MovePosition(transform.position + dir * velocidadePersseguicao * Time.deltaTime);
+                anim.SetBool("chase",true);
+            }
+            // Patrulhar
+            else
+            {
+                PatrulharAteDestino();
+                anim.SetBool("chase",false);
+            }
         }
     }
 
