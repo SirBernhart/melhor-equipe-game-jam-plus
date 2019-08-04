@@ -9,12 +9,15 @@ public class ControleJogador : MonoBehaviour
     public float velocidade = 3f;
 
     public int numChaves;
+    //[HideInInspector]
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rotacaoAtual = transform.rotation.eulerAngles;
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -25,23 +28,29 @@ public class ControleJogador : MonoBehaviour
 
     private void MovePersonagem()
     {
-        Vector3 novaPosicao = Vector3.zero;        
+        Vector3 novaPosicao = Vector3.zero;  
+
+        anim.SetBool("moving", false);      
 
         if (Input.GetButton("Up"))
         {
             novaPosicao += Vector3.up;
+            anim.SetBool("moving", true);
         }
         if (Input.GetButton("Down"))
         {
             novaPosicao += -Vector3.up;
+            anim.SetBool("moving", true);
         }
         if (Input.GetButton("Right"))
         {
             novaPosicao += Vector3.right;
+            anim.SetBool("moving", true);
         }
         if (Input.GetButton("Left"))
         {
             novaPosicao += -Vector3.right;
+            anim.SetBool("moving", true);
         }
         RotacionaPersonagem(novaPosicao);
         // Corrige o bônus de movimento diagonal
