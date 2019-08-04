@@ -13,7 +13,7 @@ public class SceneManage : MonoBehaviour
         Application.Quit();
     }
 
-    public void Credits(Animator animator){
-        animator.SetTrigger("credits");
+    public void Animate (Animator animator, string triggerName){
+        animator.SetTrigger(triggerName);
     }
 }
