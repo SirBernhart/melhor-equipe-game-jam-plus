@@ -13,6 +13,7 @@ public AudioSource keys;
             keys.Play();
             collision.GetComponent<ControleJogador>().numChaves++;
             Destroy(gameObject);
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }
