@@ -75,7 +75,7 @@ public class ControleJogador : MonoBehaviour
     {
         if(collision.tag == "Finish")
         {
-            Debug.Log("Ganhou!");
+            //Debug.Log("Ganhou!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
