@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 685105834}
   - component: {fileID: 685105835}
   - component: {fileID: 685105836}
+  - component: {fileID: 1212567170}
   m_Layer: 2
   m_Name: Heartbeat
   m_TagString: Untagged
@@ -115,7 +116,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.8
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -238,7 +239,130 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.8
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &1212567170
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685105833}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 30c40a0c8219a42c6b9005d6cf1d4a3f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.384
+  m_Pitch: 0.94
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 10.9
+  MaxDistance: 333.06
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.07573755
+      value: 1.1
+      inSlope: -30.568182
+      outSlope: -30.568182
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.14165716
+      value: 0.34075928
+      inSlope: -3.7802246
+      outSlope: -3.7802246
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6066554
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.26181468
+      value: 0.077178955
+      inSlope: -0.7843359
+      outSlope: -0.7843359
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.37583983
+    - serializedVersion: 3
+      time: 0.52362937
+      value: 0.010681152
+      inSlope: -0.11940696
+      outSlope: -0.11940696
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.0327399
+      outSlope: -0.0327399
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -322,7 +446,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7e7296c0b3e224c17bda58364a92fba9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.32
-  m_Pitch: 0.83
+  m_Pitch: 0.59
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -462,7 +586,7 @@ Transform:
   - {fileID: 685105834}
   - {fileID: 1369116610}
   m_Father: {fileID: 5910412613382423717}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1161918289743489309
 GameObject:
@@ -718,8 +842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alvo: {fileID: 0}
-  velocidadePatrulha: 2
-  velocidadePersseguicao: 10
+  velocidadePatrulha: 4.5
+  velocidadePersseguicao: 12
   distanciaProxWaypoint: 1
   jogadorEmVisao: 0
   anim: {fileID: 6065387932385083919}
@@ -915,6 +1039,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6200829594578965327, guid: f11d5b79eeec648ec8a5e141197b560d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f11d5b79eeec648ec8a5e141197b560d, type: 3}
 --- !u!1001 &6065387932373233004
@@ -924,11 +1053,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5910412613382423717}
     m_Modifications:
-    - target: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
-        type: 3}
-      propertyPath: m_Name
-      value: creatureGraphics
-      objectReference: {fileID: 0}
     - target: {fileID: 8950048188375914938, guid: 044343121f2664fc99113ad3a6a490f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -984,10 +1108,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
+        type: 3}
+      propertyPath: m_Name
+      value: creatureGraphics
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950048188375914940, guid: 044343121f2664fc99113ad3a6a490f4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8950048188375914941, guid: 044343121f2664fc99113ad3a6a490f4,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8950048186518888928, guid: 044343121f2664fc99113ad3a6a490f4,
         type: 3}
