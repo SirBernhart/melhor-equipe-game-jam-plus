@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7581824675885149654}
   - component: {fileID: 2806292270791621210}
   - component: {fileID: 1841633590055573316}
+  - component: {fileID: 3839244041585741658}
   m_Layer: 0
   m_Name: Chave
   m_TagString: Untagged
@@ -70,9 +71,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b369cc295aee5b46b6dad4dd4d06574, type: 3}
-  m_Color: {r: 0.9811321, g: 0.9434005, b: 0.1064436, a: 1}
+  m_SortingOrder: 22
+  m_Sprite: {fileID: 21300000, guid: b920b4c8925863b46bdfb47fc5fe83c3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,7 +100,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.831999, y: 6.5099998}
+    oldSize: {x: 23.72, y: 8.952909}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -120,3 +121,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ee6d367b5abcb4ebcf9e804eb390e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &3839244041585741658
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8388149004621292325}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b1c38b3983281c4f8b5ae35fd6bba53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
