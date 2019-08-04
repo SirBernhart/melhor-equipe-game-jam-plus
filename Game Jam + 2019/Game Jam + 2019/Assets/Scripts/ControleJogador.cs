@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ControleJogador : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float velocidade = 3f;
+
+    public Animator chavesUI;
 
     public int numChaves;
     //[HideInInspector]
@@ -24,6 +27,7 @@ public class ControleJogador : MonoBehaviour
     void Update()
     {
         MovePersonagem();
+        chavesUI.SetInteger("Chaves", numChaves);
     }
 
     private void MovePersonagem()
@@ -75,7 +79,7 @@ public class ControleJogador : MonoBehaviour
     {
         if(collision.tag == "Finish")
         {
-            Debug.Log("Ganhou!");
+            //Debug.Log("Ganhou!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
