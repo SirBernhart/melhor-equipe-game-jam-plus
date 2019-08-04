@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Porta : MonoBehaviour
 {
+    public AudioSource Portas;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
@@ -13,6 +15,7 @@ public class Porta : MonoBehaviour
             if (numChaves > 0)
             {
                 collision.GetComponent<ControleJogador>().numChaves--;
+                Portas.Play();
                 Destroy(gameObject);
             }
         }
