@@ -29,7 +29,7 @@ public class Esconderijo : MonoBehaviour
         {
             if (foiVisto)
             {
-                jogador.SetActive(true);
+                RevelarJogador();
             }
         }
     }
@@ -43,14 +43,20 @@ public class Esconderijo : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                jogador.transform.position = posicaoAnterior;
-                jogador.SetActive(true);
-                gameObject.SetActive(false);
-                gameObject.SetActive(true);
-                StopCoroutine(GerenciaJogadorEscondido());
+                RevelarJogador();
             }
             yield return null;
         }
+    }
+
+    // Tira o jogador do esconderijo
+    public void RevelarJogador()
+    {
+        jogador.transform.position = posicaoAnterior;
+        jogador.SetActive(true);
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        StopCoroutine(GerenciaJogadorEscondido());
     }
 
 
