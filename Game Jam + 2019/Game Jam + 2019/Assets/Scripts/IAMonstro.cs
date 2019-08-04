@@ -115,11 +115,15 @@ public class IAMonstro : MonoBehaviour
                 rb.MoveRotation(Quaternion.AngleAxis(angulo, Vector3.forward));
 
                 rb.MovePosition(transform.position + dir * velocidadePersseguicao * Time.deltaTime);
+
+                alvo.GetComponent<ControleJogador>().foiVisto = true;
+
                 anim.SetBool("chase",true);
             }
             // Patrulhar
             else
             {
+                alvo.GetComponent<ControleJogador>().foiVisto = false;
                 PatrulharAteDestino();
                 anim.SetBool("chase",false);
             }

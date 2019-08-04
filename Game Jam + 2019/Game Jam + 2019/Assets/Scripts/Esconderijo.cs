@@ -6,20 +6,31 @@ public class Esconderijo : MonoBehaviour
 {
     private Vector3 posicaoAnterior;
     private bool escondido;
+    public bool foiVisto;
     private GameObject jogador;
+    private ControleJogador controle;
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
         {
             jogador = collision.gameObject;
+            controle = jogador.GetComponent<ControleJogador>();
+            foiVisto = controle.foiVisto; // Usado para saber se o monstro o encontrará mesmo estando escondido ou não
             jogador.SetActive(false);
 
             posicaoAnterior = collision.transform.position;
             jogador.transform.position = transform.position;
-            jogador.GetComponent<ControleJogador>().escondido = true;
 
             StartCoroutine(GerenciaJogadorEscondido());
+        }
+
+        if(collision.gameObject.tag == "Monstro")
+        {
+            if (foiVisto)
+            {
+                jogador.SetActive(true);
+            }
         }
     }
 
@@ -33,7 +44,6 @@ public class Esconderijo : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 jogador.transform.position = posicaoAnterior;
-                jogador.GetComponent<ControleJogador>().escondido = false;
                 jogador.SetActive(true);
                 gameObject.SetActive(false);
                 gameObject.SetActive(true);

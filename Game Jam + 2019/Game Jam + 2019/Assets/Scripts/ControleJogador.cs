@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ControleJogador : MonoBehaviour
 {
-    public bool escondido;
+    public bool foiVisto;
 
     private Rigidbody2D rb;
     public float velocidade = 3f;
