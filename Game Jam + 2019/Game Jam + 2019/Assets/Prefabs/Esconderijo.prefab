@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4994034334663109259}
   - component: {fileID: 1282561418817604651}
   - component: {fileID: 2033752326041829705}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Esconderijo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8256639186122781422}
   - component: {fileID: 1979087494509256830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

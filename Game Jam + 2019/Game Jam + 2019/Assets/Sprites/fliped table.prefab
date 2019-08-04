@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7161040089588051707}
   - component: {fileID: 8748248632525233112}
   - component: {fileID: 2233200868066022537}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fliped table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
