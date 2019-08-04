@@ -50964,7 +50964,7 @@ GameObject:
   - component: {fileID: 389659522}
   - component: {fileID: 389659521}
   - component: {fileID: 389659523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bookshelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70201,12 +70201,12 @@ PrefabInstance:
     - target: {fileID: 7161040089588051707, guid: 400d7b867a98c984f83af099b842afae,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 63.32523
+      value: 66.25
       objectReference: {fileID: 0}
     - target: {fileID: 7161040089588051707, guid: 400d7b867a98c984f83af099b842afae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.20867
+      value: 5.13
       objectReference: {fileID: 0}
     - target: {fileID: 7161040089588051707, guid: 400d7b867a98c984f83af099b842afae,
         type: 3}
@@ -70417,12 +70417,12 @@ PrefabInstance:
     - target: {fileID: 436436532654480898, guid: a1f9ff154a827f8438a4a8729a5b14ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 82.47276
+      value: 83.06
       objectReference: {fileID: 0}
     - target: {fileID: 436436532654480898, guid: a1f9ff154a827f8438a4a8729a5b14ee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.477615
+      value: 31.86
       objectReference: {fileID: 0}
     - target: {fileID: 436436532654480898, guid: a1f9ff154a827f8438a4a8729a5b14ee,
         type: 3}
@@ -76147,11 +76147,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 857942789}
     m_Modifications:
-    - target: {fileID: 1161918289743489309, guid: 2808c770af4d086409dcd7871ad153af,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5910412613382423721, guid: 2808c770af4d086409dcd7871ad153af,
         type: 3}
       propertyPath: m_Name
@@ -76222,6 +76217,11 @@ PrefabInstance:
       propertyPath: paiPosicoesPatrulha
       value: 
       objectReference: {fileID: 984979718}
+    - target: {fileID: 1161918289743489309, guid: 2808c770af4d086409dcd7871ad153af,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2808c770af4d086409dcd7871ad153af, type: 3}
 --- !u!1001 &1581758651
@@ -76567,6 +76567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1639464422}
   - component: {fileID: 1639464421}
+  - component: {fileID: 1639464423}
   m_Layer: 0
   m_Name: pia
   m_TagString: Untagged
@@ -76637,6 +76638,28 @@ Transform:
   m_Father: {fileID: 1121570419}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1639464423
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639464420}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.82797813, y: 0.44916153}
+  - {x: -0.808033, y: -0.45650482}
+  - {x: -0.6356659, y: -0.5800533}
+  - {x: 0.5700836, y: -0.5493393}
+  - {x: 0.75720024, y: -0.3853073}
+  - {x: 0.7920208, y: 0.4132309}
 --- !u!1 &1652425620
 GameObject:
   m_ObjectHideFlags: 0
@@ -76648,7 +76671,7 @@ GameObject:
   - component: {fileID: 1652425622}
   - component: {fileID: 1652425621}
   - component: {fileID: 1652425623}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bookshelf (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76712,7 +76735,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652425620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.625233, y: 26.44867, z: 38.749004}
+  m_LocalPosition: {x: 30.625233, y: 19.2, z: 38.749004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1121570419}
@@ -76739,7 +76762,7 @@ EdgeCollider2D:
   - {x: 0.035209656, y: 1.65767}
   - {x: -0.25107574, y: 3.3130732}
   - {x: -1.3535919, y: 3.1955328}
-  - {x: -3.4785538, y: -1.4799538}
+  - {x: -3.696701, y: -0.33545685}
 --- !u!1 &1664010417
 GameObject:
   m_ObjectHideFlags: 0
@@ -86419,7 +86442,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1957482944}
   - component: {fileID: 1957482945}
-  m_Layer: 0
+  - component: {fileID: 1957482946}
+  m_Layer: 8
   m_Name: bathroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86489,6 +86513,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &1957482946
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957482943}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 1.1670275, y: 2.5299397}
+  - {x: -1.158493, y: 2.5472374}
+  - {x: -1.1350822, y: -2.502102}
+  - {x: 1.146348, y: -2.4863205}
 --- !u!4 &1973675470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7161040089588051707, guid: 400d7b867a98c984f83af099b842afae,
