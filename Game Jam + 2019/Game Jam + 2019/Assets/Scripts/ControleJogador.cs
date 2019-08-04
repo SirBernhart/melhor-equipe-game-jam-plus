@@ -27,19 +27,19 @@ public class ControleJogador : MonoBehaviour
     {
         Vector3 novaPosicao = Vector3.zero;        
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetButton("Up"))
         {
             novaPosicao += Vector3.up;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetButton("Down"))
         {
             novaPosicao += -Vector3.up;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetButton("Right"))
         {
             novaPosicao += Vector3.right;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetButton("Left"))
         {
             novaPosicao += -Vector3.right;
         }
