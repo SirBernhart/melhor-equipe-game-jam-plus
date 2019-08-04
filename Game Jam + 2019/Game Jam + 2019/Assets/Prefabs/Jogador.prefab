@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba60764b5b1b64b43a173fa5f1ae1ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foiVisto: 0
   velocidade: 6
   chavesUI: {fileID: 0}
   numChaves: 0
@@ -690,6 +691,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5518595585319732003, guid: 64ab18894e0d2da47be0f5dc6fb8da86,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5518595585986245005, guid: 64ab18894e0d2da47be0f5dc6fb8da86,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5518595586398732865, guid: 64ab18894e0d2da47be0f5dc6fb8da86,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64ab18894e0d2da47be0f5dc6fb8da86, type: 3}
