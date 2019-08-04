@@ -18,7 +18,7 @@ public class IAMonstro : MonoBehaviour
     Seeker seeker;
     Rigidbody2D rb;
 
-    private bool updatePathExecutando; // Se a corotina UpdatePath está sendo executada
+    private bool espreitarJogadorExecutando; // Se a corotina UpdatePath está sendo executada
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +32,6 @@ public class IAMonstro : MonoBehaviour
 
         indiceDestinoAtual = SortearProximoDestino(indiceDestinoAtual);
         seeker.StartPath(rb.position, posicoesPatrulha[indiceDestinoAtual], OnPathComplete);
-
-        //StartCoroutine(UpdatePath());
     }
 
     public void MudarEstadoJogadorAvistado(bool avistado)
@@ -41,27 +39,27 @@ public class IAMonstro : MonoBehaviour
         jogadorEmVisao = avistado;
         if (avistado)
         {
-            Debug.Log(updatePathExecutando);
-            if (updatePathExecutando)
+            Debug.Log(espreitarJogadorExecutando);
+            if (espreitarJogadorExecutando)
             {
-                updatePathExecutando = false;
-                StopCoroutine(UpdatePath());
+                espreitarJogadorExecutando = false;
+                StopCoroutine(EspreitarJogador());
             }
         }
         else
         {
             // Se a corotina já estiver sendo executada, não iniciar outra
-            if (!updatePathExecutando)
+            if (!espreitarJogadorExecutando)
             {
-                StartCoroutine(UpdatePath());
+                StartCoroutine(EspreitarJogador());
             }
         }
     }
 
     // Recalcula o caminho para o destino a cada 0.5 segundo
-    IEnumerator UpdatePath()
+    IEnumerator EspreitarJogador()
     {
-        updatePathExecutando = true;
+        espreitarJogadorExecutando = true;
         while(true)
         {
             if (seeker.IsDone())
