@@ -8,10 +8,13 @@ public class ControleJogador : MonoBehaviour
     private Rigidbody2D rb;
     public float velocidade = 3f;
 
+    public int numChaves;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rotacaoAtual = transform.rotation.eulerAngles;
     }
 
     // Update is called once per frame
@@ -24,19 +27,19 @@ public class ControleJogador : MonoBehaviour
     {
         Vector3 novaPosicao = Vector3.zero;        
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetButton("Up"))
         {
             novaPosicao += Vector3.up;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetButton("Down"))
         {
             novaPosicao += -Vector3.up;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetButton("Right"))
         {
             novaPosicao += Vector3.right;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetButton("Left"))
         {
             novaPosicao += -Vector3.right;
         }
@@ -52,12 +55,11 @@ public class ControleJogador : MonoBehaviour
     Vector3 rotacaoAtual;
     private void RotacionaPersonagem(Vector3 novaPosicao)
     {
-        rotacaoAtual = transform.rotation.eulerAngles;
+        //rotacaoAtual = transform.rotation.eulerAngles;
         rotacaoAtual = Vector3.SmoothDamp(rotacaoAtual, new Vector3(novaPosicao.x, novaPosicao.y),
             ref velocidadeDaSuavizacaoRotacao, tempoDeSuavizacaoRotacao);
-
         float angulo = Mathf.Atan2(rotacaoAtual.y, rotacaoAtual.x) * Mathf.Rad2Deg;
-        rb.SetRotation(angulo);
+        rb.MoveRotation(angulo);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

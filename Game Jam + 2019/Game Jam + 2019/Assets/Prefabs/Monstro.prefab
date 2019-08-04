@@ -193,11 +193,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alvo: {fileID: 0}
   velocidadePatrulha: 2
-  velocidadePersseguicao: 3
+  velocidadePersseguicao: 4.5
   distanciaProxWaypoint: 1
   jogadorEmVisao: 0
   tempoDeSuavizacaoRotacao: 0.12
-  posicoesPatrulha: []
+  paiPosicoesPatrulha: {fileID: 0}
 --- !u!114 &5910412613382423725
 MonoBehaviour:
   m_ObjectHideFlags: 0

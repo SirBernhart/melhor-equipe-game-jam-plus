@@ -25,7 +25,15 @@ public class IAMonstro : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(UpdatePath());
+        for (int i = 0; i < paiPosicoesPatrulha.childCount; i++)
+        {
+            posicoesPatrulha.Add(paiPosicoesPatrulha.GetChild(i).position);
+        }
+
+        indiceDestinoAtual = SortearProximoDestino(indiceDestinoAtual);
+        seeker.StartPath(rb.position, posicoesPatrulha[indiceDestinoAtual], OnPathComplete);
+
+        //StartCoroutine(UpdatePath());
     }
 
     public void MudarEstadoJogadorAvistado(bool avistado)
@@ -50,6 +58,7 @@ public class IAMonstro : MonoBehaviour
         }
     }
 
+    // Recalcula o caminho para o destino a cada 0.5 segundo
     IEnumerator UpdatePath()
     {
         updatePathExecutando = true;
@@ -72,12 +81,28 @@ public class IAMonstro : MonoBehaviour
         } 
     }
 
+    // Sorteia o próximo destino que o monstro irá se dirigir para
+    // Se sortear o mesmo que o anterior, repete o sorteio
+    public int SortearProximoDestino(int indiceAtual)
+    {
+        int proximoDestino;
+        do
+        {
+            proximoDestino = Random.Range(0, posicoesPatrulha.Count);
+        } while (proximoDestino == indiceAtual);
+        return proximoDestino;
+    }
+
+    //================================== UPDATE ===========================================
+
     // Variáveis para tratar a rotação do monstro
     [SerializeField] private float tempoDeSuavizacaoRotacao = .12f;
     Vector3 velocidadeDaSuavizacaoRotacao;
     Vector3 rotacaoAtual;
 
-    public List<Vector3> posicoesPatrulha; // Posições pelas quais o monstro vai ficar patrulhando
+    public Transform paiPosicoesPatrulha;
+    private List<Vector3> posicoesPatrulha = new List<Vector3>(); // Posições pelas quais o monstro vai ficar patrulhando
+    private int indiceDestinoAtual;
     void Update()
     {
         // Seguir o jogador
@@ -92,35 +117,50 @@ public class IAMonstro : MonoBehaviour
         // Patrulhar
         else
         {
-            if (path == null)
-                return;
-
-            if(currentWaypoint >= path.vectorPath.Count)
-            {
-                reachedEndOfPath = true;
-                return;
-            }
-            else
-            {
-                reachedEndOfPath = false;
-            }
-
-            Vector2 direcao = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-
-            rotacaoAtual = Vector3.SmoothDamp(rotacaoAtual, new Vector3(direcao.x, direcao.y),
-            ref velocidadeDaSuavizacaoRotacao, tempoDeSuavizacaoRotacao);
-
-            float angulo = Mathf.Atan2(rotacaoAtual.y, rotacaoAtual.x) * Mathf.Rad2Deg;
-            rb.SetRotation(angulo);
-
-            rb.MovePosition(rb.position + direcao * velocidadePatrulha * Time.deltaTime);
-
-            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-
-            if(distance < distanciaProxWaypoint)
-            {
-                currentWaypoint++;
-            }
+            PatrulharAteDestino();
         }
     }
+
+    // Patrulha até o destino atual
+    public void PatrulharAteDestino()
+    {
+        if (path == null)
+            return;
+
+        if (currentWaypoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            indiceDestinoAtual = SortearProximoDestino(indiceDestinoAtual);
+            if (seeker.IsDone())
+            {
+                seeker.StartPath(rb.position, posicoesPatrulha[indiceDestinoAtual], OnPathComplete);
+            }
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
+        //Calcula a direção para onde o monstro vai patrulhar
+        Vector2 direcao = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+
+        // Faz a rotação do monstro de acordo com a direção que ele está seguindo
+        rotacaoAtual = Vector3.SmoothDamp(rotacaoAtual, new Vector3(direcao.x, direcao.y),
+        ref velocidadeDaSuavizacaoRotacao, tempoDeSuavizacaoRotacao);
+
+        float angulo = Mathf.Atan2(rotacaoAtual.y, rotacaoAtual.x) * Mathf.Rad2Deg;
+        rb.SetRotation(angulo);
+
+        // Move em direção ao próximo waypoint 
+        rb.MovePosition(rb.position + direcao * velocidadePatrulha * Time.deltaTime);
+
+        // Calcula se já deve andar para o waypoint seguinte ou não
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+
+        if (distance < distanciaProxWaypoint)
+        {
+            currentWaypoint++;
+        }
+    }
+
 }
