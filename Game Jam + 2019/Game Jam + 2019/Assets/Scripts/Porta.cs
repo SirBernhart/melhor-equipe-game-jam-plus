@@ -6,15 +6,15 @@ public class Porta : MonoBehaviour
 {
     public AudioSource Portas;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
-            int numChaves = collision.GetComponent<ControleJogador>().numChaves;
+            int numChaves = collision.gameObject.GetComponent<ControleJogador>().numChaves;
 
             if (numChaves > 0)
             {
-                collision.GetComponent<ControleJogador>().numChaves--;
+                collision.gameObject.GetComponent<ControleJogador>().numChaves--;
                 Portas.Play();
                 Destroy(gameObject);
             }
