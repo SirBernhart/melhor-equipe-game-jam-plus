@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Final/00 - Splash.unity
-    guid: 207badce3e9594bc2a7a2b4063550b44
+    path: Assets/Scenes/Final/00 - Title.unity
+    guid: 9e4c4a94c39e24b3ea820610f94665b0
   - enabled: 1
     path: Assets/Scenes/Final/01 - Game.unity
     guid: 66e74e48e109e45a6a10355cc82965ca
   - enabled: 1
     path: Assets/Scenes/Final/02 - Endgame.unity
     guid: da8bdfd1697f34d20972b86f8b2a16e4
-  - enabled: 1
-    path: Assets/Scenes/Final/03 - Credits.unity
-    guid: 9639ec531351c40cea3dc5d13bf4060d
   m_configObjects: {}
