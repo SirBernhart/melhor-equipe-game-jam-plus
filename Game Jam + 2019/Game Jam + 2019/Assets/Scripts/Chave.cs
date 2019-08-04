@@ -10,6 +10,7 @@ public class Chave : MonoBehaviour
         {
             collision.GetComponent<ControleJogador>().numChaves++;
             Destroy(gameObject);
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }
